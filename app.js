@@ -1,14 +1,25 @@
-const classBtn = document.querySelectorAll('.controlClass');
-const btns = document.querySelectorAll('.control')
+const express = require("express")
+const bodyParser = require("body-parser")
+const ejs = require("ejs")
 
-function btnTransition(){
-    for(let i = 0; i < btns.length; i++){
-        btns[i].addEventListener('click', function(){
-            let currentBtn = document.querySelectorAll('.active-btn');
-            currentBtn[0].className = currentBtn[0].className.replace("active-btn", "");
-            this.className += " active-btn";
-        })
-    }
-}
+const app = express();
 
-btnTransition();
+app.set("view engine", "ejs");
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static("public"));
+
+app.get("/", (req, res) => {
+    res.render("index");
+})
+
+app.get("/blogs", (req, res) => {
+    res.render("blogs");
+})
+
+app.get("/contacts", (req, res) => {
+    res.render("contact");
+})
+
+app.listen(3000, () => {
+    console.log("Server has started on PORT 3000.");
+})

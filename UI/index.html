@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/9f84562e7d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="public/css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <img src="public/images/logo-portfolio.png" id="img1">
+        <img src="public/images/img1-portfolio.png" id="img2">
+    </nav>
+    <div class="main-content">
+        <img src="public/images/img2-portfolio.png" id="img3">
+        <div class="title-text">
+            <h1 id="title-hi">Hi,</h1>
+            <h3 class="title-next">I'm <span id="title-name">Samarth Bura</span></h3>
+        </div>
+    </div>
+    <div class="controlClass">
+        <div class="control control-1 active-btn">
+            <span id="tooltip">Home</span>
+            <span><i class="fas fa-home"></i></span>
+        </div>
+        <div class="control control-2">
+            <span id="tooltip">About</span>
+            <span><i class="fas fa-user"></i></span>
+        </div>
+        <div class="control control-3">
+            <span id="tooltip">Work</span>
+            <span><i class="fas fa-briefcase"></i></span>
+        </div>
+        <div class="control control-4">
+            <span id="tooltip">Blogs</span>
+            <span><i class="far fa-newspaper"></i></span>
+        </div>
+        <div class="control control-5">
+            <span id="tooltip">Contact</span>
+            <span><i class="fas fa-envelope-open"></i></span>
+        </div>
+    </div>
+
+    <script src="app.js">
+        const classBtn = document.querySelectorAll('.controlClass');
+        const btns = document.querySelectorAll('.control')
+
+        function btnTransition(){
+            for(let i = 0; i < btns.length; i++){
+                btns[i].addEventListener('click', function(){
+                    let currentBtn = document.querySelectorAll('.active-btn');
+                    currentBtn[0].className = currentBtn[0].className.replace("active-btn", "");
+                    this.className += " active-btn";
+                })
+            }
+        }
+
+        btnTransition();
+    </script>
+
+</body>
+</html>
